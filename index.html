@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebar" class="col-md-4 col-lg-3 sidebar">
+                <div class="sidebar-sticky">
+                    <h2>
+                        Bharti Vidyapeeth College of Engineering
+                    </h2>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li> 
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Cources</a>
+                        </li> 
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Results</a>
+                        </li> 
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Placements</a>
+                        </li> 
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Faculties</a>
+                        </li> 
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Student Record</a>
+                        </li>                 
+                    </ul>
+                </div>
+            </nav>
+            <main id="content" class="col-md-8 col-lg-9">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Total Sales</h5>
+                        <p class="card-text">1000</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card shadow mb-4">
+                      <div class="card-body">
+                        <h5 class="card-title">Total Orders</h5>
+                        <p class="card-text">500</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Total Customers</h5>
+                        <p class="card-text">300</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Total Customers</h5>
+                        <p class="card-text">300</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Total Customers</h5>
+                        <p class="card-text">300</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Total Customers</h5>
+                        <p class="card-text">300</p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Add more cards for additional statistics -->
+                </div>
+                <div class="chart-container">
+                <canvas id="placementChart" width="400" height="400"></canvas>
+              </div>
+
+                <div class="row">
+                  <div class="col-md-10">
+                    <div class="card">
+                      <div class="card-body">
+                        <h3 class="card-title">
+                          Student Registration
+                        </h3>
+                        <form>
+                          <div class="form-group">
+                              <label for="studentName">Name</label>
+                              <input type="text" class="form-control" id="studentName" placeholder="Enter your name">
+                          </div>
+                          <div class="form-group">
+                              <label for="studentEmail">Email address</label>
+                              <input type="email" class="form-control" id="studentEmail" placeholder="Enter your email">
+                          </div>
+                          <div class="form-group">
+                              <label for="studentPassword">Password</label>
+                              <input type="password" class="form-control" id="studentPassword" placeholder="Enter your password">
+                          </div>
+                          <button type="submit" class="btn btn-primary" onclick="saveData()">Submit</button>
+                      </form>
+                      </div>
+  
+                    </div>
+                  </div>
+  
+                </div>
+              </main>
+
+        
+
+        </div>
+
+    </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+      function renderPlacementChart() {
+        var ctx = document.getElementById('placementChart').getContext('2d');
+        var placementData = {
+          labels: ['Placed', 'Not Placed'],
+          datasets: [{
+            label: 'Placement Status',
+            data: [75, 25], // Example data (replace with actual data)
+            backgroundColor: [
+              'rgba(75, 192, 192, 0.6)',
+              'rgba(255, 99, 132, 0.6)',
+            ],
+            borderWidth: 1
+          }]
+        };
+        var placementChart = new Chart(ctx, {
+          type: 'pie',
+          data: placementData,
+          options: {
+        maintainAspectRatio: false, // Disable aspect ratio for custom sizing
+        responsive: false, // Disable responsiveness for custom sizing
+        width: 200, // Set custom width
+        height: 200, // Set custom height
+      }
+        });
+      }
+    
+      // Call the function to render the chart
+      renderPlacementChart();
+    </script>
+    
+    
+</body>
+</html>
